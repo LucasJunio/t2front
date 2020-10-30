@@ -6,7 +6,6 @@ import api from '../../../services/api';
 import { signInSuccess, signFailure } from './actions';
 
 import {setUser, setToken, logout} from './authLocalStorage'
-import {returnSkillRequest} from "../skill/actions";
 
 export function* SignIn({ payload }) {
   try {
