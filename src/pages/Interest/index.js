@@ -7,6 +7,8 @@ import { addInterestRequest, readInterestRequest, updateInterestRequest, deleteI
 
 import { Local } from './style';
 
+
+
 export default function Interest() {
 
     let interest = []
