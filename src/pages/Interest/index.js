@@ -3,40 +3,44 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import MaterialTable from 'material-table'
 
-import { addInterestRequest, readInterestRequest, updateInterestRequest, deleteInterestRequest } from '../../store/modules/interest/actions';
+import { addUserInterestRequest, readUserInterestRequest, updateUserInterestRequest, deleteUserInterestRequest } from '../../store/modules/userinterest/actions';
+import {readInterestRequest} from "../../store/modules/interest/actions";
 
 import { Local } from './style';
-
-
+import { SingleSelect } from "react-select-material-ui";
+import {getUser} from "../../store/modules/auth/authLocalStorage";
 
 export default function Interest() {
-
-    let interest = []
     
     const dispatch = useDispatch();
     
     useEffect(() => {
-        dispatch(readInterestRequest());    
+        dispatch(readUserInterestRequest());
+        dispatch(readInterestRequest());
     }, []);
-    
-    interest = useSelector(state => state.interest.interest )
-    
+
+    let userinterest = useSelector(state => state.userinterest.userinterest )
+    let interests = useSelector(state => state.interest.interest )
+
     const refresh = (() => {
-        dispatch(readInterestRequest());    
+        dispatch(readUserInterestRequest());
     });
 
-    function addInterest(object, resolve) {
-        dispatch(addInterestRequest(object, () => { refresh(); resolve(); }));
+    function addUserInterest(object, resolve) {
+
+        dispatch(addUserInterestRequest(object, () => { refresh(); resolve(); }));
     }
     
-    function updateInterest(id, object, resolve) {
-        dispatch(updateInterestRequest(object, () => { refresh(); resolve(); }));
+    function updateUserInterest(id, object, resolve) {
+        dispatch(updateUserInterestRequest(object, () => { refresh(); resolve(); }));
     }
 
-    function deleteInterest(id, resolve) {
-        dispatch(deleteInterestRequest(id, () => { refresh(); resolve(); })); 
+    function deleteUserInterest(id, resolve) {
+        dispatch(deleteUserInterestRequest(id, () => { refresh(); resolve(); }));
     }
-        
+
+    let user = getUser()
+
     return (
         <Local>
             <MaterialTable
@@ -46,27 +50,39 @@ export default function Interest() {
                 }}
 
                 columns={[
-                    { title: 'Nome', field: 'name' }                  
+                    {
+                        title: 'Interesse', field: 'id_interest',  lookup: interests.reduce((acc, cv) => ({...acc, [cv.id]: cv.name}), {}),
+                        editComponent: props => (
+                          <SingleSelect
+                            value={props.value}
+                            placeholder="Selecione um interesse"
+                            options={interests.map(el => ({label: el.name, value: el.id}))}
+                            onChange={value => props.onChange(value)}
+                          />
+                        )
+                    }
                 ]}
-                data={interest}
-                title="Interesse"
+
+                data={userinterest}
+                title="Interesse do usuário"
 
                 editable={{
                     onRowAdd: newData =>
                     new Promise((resolve, reject) => {
-                        if (['name'].some(field => !newData[field])) return reject()
-                        addInterest(newData, resolve);
+                        if (['id_interest'].some(field => !newData[field])) return reject()
+                        newData["id_user"] = user.id
+                        addUserInterest(newData, resolve);
                     }),
                     onRowUpdate: (newData, oldData) =>
                     new Promise((resolve, reject) => {
                         if (oldData) {
-                            if (['name'].some(field => !newData[field])) return reject()
-                            updateInterest(oldData.id, newData, resolve);
+                            if (['id_interest'].some(field => !newData[field])) return reject()
+                            updateUserInterest(oldData.id, newData, resolve);
                         }
                     }),
                     onRowDelete: oldData =>
                     new Promise(resolve => {
-                        deleteInterest(oldData.id, resolve);
+                        deleteUserInterest(oldData.id, resolve);
                     }),
                 }}
             />
