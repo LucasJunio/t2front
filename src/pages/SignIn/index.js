@@ -42,7 +42,6 @@ export default function SignIn() {
   function handleSubmit(e) {
     e.preventDefault();
     dispatch(signInRequest(email, password));
-    // history.push('/admin/');
   }
 
   const handleSuccess = (data) => {

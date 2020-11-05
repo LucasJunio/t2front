@@ -24,9 +24,10 @@ export default function Sidebar() {
                             <span>MAIN LINKS</span>
                             <nav>
                                 <ul>
-                                    <li><Link  to="/admin/interest"><i className="fa fa-bolt"></i> Interesse </Link></li>
-                                    <li><Link  to="/admin/question"><i className="fa fa-bolt"></i> Pergunta </Link></li>
-                                    <li><Link  to="/admin/evaluation"><i className="fa fa-bolt"></i> Avaliação </Link></li>
+                                    <li><Link  to="/client/interest"><i className="fa fa-bolt"></i> Interesse </Link></li>
+                                    <li><Link  to="/client/question"><i className="fa fa-bolt"></i> Pergunta </Link></li>
+                                    <li><Link  to="/client/evaluation"><i className="fa fa-bolt"></i> Avaliação </Link></li>
+                                    <li><Link  to="/client/privacy"><i className="fa fa-bolt"></i> Privacidade </Link></li>
                                 </ul>
                             </nav>
                         </div>
