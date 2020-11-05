@@ -15,6 +15,7 @@ import SignIn from '../pages/SignIn';
 import Interest from "../pages/Interest";
 import Evaluation from "../pages/Evaluation";
 import Question from "../pages/Question";
+import Privacy from "../pages/Privacy";
 
 export default function Routes() {
 
@@ -25,17 +26,19 @@ export default function Routes() {
           <div>
             <Route path="/" exact component={SignIn}/>
 
-            <Route path='/admin*' component={Header} isPrivate/>
+            <Route path='/client*' component={Header} isPrivate/>
 
-            <Route path="/admin*" component={Sidebar} isPrivate/>
+            <Route path="/client*" component={Sidebar} isPrivate/>
 
             <Route exact path="/linkedin" component={LinkedInPopUp}/>
 
-            <Route path="/admin/interest" exact component={Interest} isPrivate/>
+            <Route path="/client/interest" exact component={Interest} isPrivate/>
 
-            <Route path="/admin/evaluation" exact component={Evaluation} isPrivate />
+            <Route path="/client/evaluation" exact component={Evaluation} isPrivate />
 
-            <Route path="/admin/question" exact component={Question} isPrivate />
+            <Route path="/client/question" exact component={Question} isPrivate />
+
+            <Route path="/client/privacy" exact component={Privacy} isPrivate />
 
             {/* Pode-se usar o switch para um componente completamente montado */}
             {/* <Switch> */}
