@@ -28,6 +28,7 @@ export default function Sidebar() {
                                     <li><Link  to="/client/question"><i className="fa fa-bolt"></i> Pergunta </Link></li>
                                     <li><Link  to="/client/evaluation"><i className="fa fa-bolt"></i> Avaliação </Link></li>
                                     <li><Link  to="/client/privacy"><i className="fa fa-bolt"></i> Privacidade </Link></li>
+                                    <li><Link  to="/client/curriculum"><i className="fa fa-bolt"></i> Curriculum </Link></li>
                                 </ul>
                             </nav>
                         </div>

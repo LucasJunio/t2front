@@ -16,6 +16,7 @@ import Interest from "../pages/Interest";
 import Evaluation from "../pages/Evaluation";
 import Question from "../pages/Question";
 import Privacy from "../pages/Privacy";
+import Curriculum from "../pages/Curriculum";
 
 export default function Routes() {
 
@@ -39,6 +40,8 @@ export default function Routes() {
             <Route path="/client/question" exact component={Question} isPrivate />
 
             <Route path="/client/privacy" exact component={Privacy} isPrivate />
+
+            <Route path="/client/curriculum" exact component={Curriculum} isPrivate />
 
             {/* Pode-se usar o switch para um componente completamente montado */}
             {/* <Switch> */}
