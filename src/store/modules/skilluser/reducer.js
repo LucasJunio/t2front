@@ -4,14 +4,14 @@ import { setAutoFreeze } from 'immer';
 setAutoFreeze(false);
 
 const INITIAL_STATE = {
-    grouptype: []
+    skilluser: []
 };
 
 export default function auth(state = INITIAL_STATE, action) {
   return produce(state, draft => {
     switch (action.type) {
-      case '@grouptype/RETURN_GROUPTYPE': {
-        draft.grouptype = action.payload.grouptype;
+      case '@skilluser/RETURN_SKILLUSER': {
+        draft.skilluser = action.payload.skilluser;
         break;
       }
       default:
