@@ -4,14 +4,19 @@ import { setAutoFreeze } from 'immer';
 setAutoFreeze(false);
 
 const INITIAL_STATE = {
-    vehicles: []
+    user: [],
+    token: []
 };
 
 export default function auth(state = INITIAL_STATE, action) {
   return produce(state, draft => {
     switch (action.type) {
-      case '@vehicles/RETURN_VEHICLES': {
-        draft.vehicles = action.payload.vehicles;
+      case '@user/RETURN_USER': {
+        draft.user = action.payload.user;
+        break;
+      }
+      case '@user/GET_JWT_USER': {
+        draft.token = [{"token":action.payload.jwt}];
         break;
       }
       default:

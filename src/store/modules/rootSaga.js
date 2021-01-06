@@ -3,10 +3,10 @@ import { all } from 'redux-saga/effects';
 // Alphabetically organized
 
 import auth from './auth/sagas';
-import vehicles from "./vehicles/sagas";
+import user from "./user/sagas";
 
 export default function* rootSaga() {
   return yield all([
-    auth, vehicles
+    auth, user
   ]);
 }

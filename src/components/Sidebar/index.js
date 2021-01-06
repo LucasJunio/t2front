@@ -22,7 +22,7 @@ export default function Sidebar() {
                             <span>MAIN LINKS</span>
                             <nav>
                                 <ul>
-                                    <li><Link  to="/"><i className="fa fa-bolt"></i> Veículo </Link></li>
+                                    <li><Link  to="/"><i className="fa fa-bolt"></i> Usuário </Link></li>
                                 </ul>
                             </nav>
                         </div>

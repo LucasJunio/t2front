@@ -4,10 +4,10 @@ import { connectRouter } from 'connected-react-router'
 // Alphabetically organized
 
 import auth from './auth/reducer';
-import vehicles from './vehicles/reducer';
+import user from './user/reducer';
 
 const rootReducer = (history) => combineReducers({
     router: connectRouter(history),
-    auth, vehicles
+    auth, user
   })
 export default rootReducer;

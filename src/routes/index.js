@@ -11,7 +11,7 @@ import store from '../store'
 import Route from './Route'
 import history from '../services/history';
 
-import Vehicles from '../pages/Vehicles';
+import User from '../pages/User';
 
 export default function Routes() {
 
@@ -21,7 +21,7 @@ export default function Routes() {
         <ConnectedRouter history={history}>
           <div>
 
-            <Route path="/" exact component={Vehicles}/>
+            <Route path="/" exact component={User}/>
 
             <Route path='/' component={Header} />
 
