@@ -25,7 +25,7 @@ export function* SignIn({ payload }) {
 
     yield put(signInSuccess(jwt, user));
 
-    history.push('/admin/');
+    history.push('/client/');
 
   } catch (err) {
     console.log(err);
@@ -57,7 +57,7 @@ export function* LoginSocial({ payload, resolve = () => {} }) {
     setToken(jwt)
 
     yield put(signInSuccess(response.data.jwt, response.data.user));
-    history.push('/admin/');
+    history.push('/client/');
 
   } catch (err) {
     console.log('Falha no Login');

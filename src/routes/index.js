@@ -11,10 +11,7 @@ import store from '../store'
 import Route from './Route'
 import history from '../services/history';
 
-import SignIn from '../pages/SignIn';
-import Interest from "../pages/Interest";
-import Evaluation from "../pages/Evaluation";
-import Question from "../pages/Question";
+import Vehicles from '../pages/Vehicles';
 
 export default function Routes() {
 
@@ -23,27 +20,13 @@ export default function Routes() {
       <Provider store={store}>
         <ConnectedRouter history={history}>
           <div>
-            <Route path="/" exact component={SignIn}/>
 
-            <Route path='/admin*' component={Header} isPrivate/>
+            <Route path="/" exact component={Vehicles}/>
 
-            <Route path="/admin*" component={Sidebar} isPrivate/>
+            <Route path='/' component={Header} />
 
-            <Route exact path="/linkedin" component={LinkedInPopUp}/>
+            <Route path="/" component={Sidebar} />
 
-            <Route path="/admin/interest" exact component={Interest} isPrivate/>
-
-            <Route path="/admin/evaluation" exact component={Evaluation} isPrivate />
-
-            <Route path="/admin/question" exact component={Question} isPrivate />
-
-            {/* Pode-se usar o switch para um componente completamente montado */}
-            {/* <Switch> */}
-            {/* </Switch> */}
-
-            {/* Pode-se usar o switch para um componente completamente montado */}
-            {/* <Switch> */}
-            {/* </Switch> */}
           </div>
         </ConnectedRouter>
       </Provider>

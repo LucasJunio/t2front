@@ -23,7 +23,7 @@ export default function RouteWrapper({
     }
 
     if (validation && !isPrivate) {
-      return <Redirect to="/admin" />;
+      return <Redirect to="/client" />;
     }
 
     return (
