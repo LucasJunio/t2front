@@ -11,12 +11,7 @@ import store from '../store'
 import Route from './Route'
 import history from '../services/history';
 
-import SignIn from '../pages/SignIn';
-import Interest from "../pages/Interest";
-import Evaluation from "../pages/Evaluation";
-import Question from "../pages/Question";
-import Privacy from "../pages/Privacy";
-import Curriculum from "../pages/Curriculum";
+import Vehicles from '../pages/Vehicles';
 
 export default function Routes() {
 
@@ -25,31 +20,13 @@ export default function Routes() {
       <Provider store={store}>
         <ConnectedRouter history={history}>
           <div>
-            <Route path="/" exact component={SignIn}/>
 
-            <Route path='/client*' component={Header} isPrivate/>
+            <Route path="/" exact component={Vehicles}/>
 
-            <Route path="/client*" component={Sidebar} isPrivate/>
+            <Route path='/' component={Header} />
 
-            <Route exact path="/linkedin" component={LinkedInPopUp}/>
+            <Route path="/" component={Sidebar} />
 
-            <Route path="/client/interest" exact component={Interest} isPrivate/>
-
-            <Route path="/client/evaluation" exact component={Evaluation} isPrivate />
-
-            <Route path="/client/question" exact component={Question} isPrivate />
-
-            <Route path="/client/privacy" exact component={Privacy} isPrivate />
-
-            <Route path="/client/curriculum" exact component={Curriculum} isPrivate />
-
-            {/* Pode-se usar o switch para um componente completamente montado */}
-            {/* <Switch> */}
-            {/* </Switch> */}
-
-            {/* Pode-se usar o switch para um componente completamente montado */}
-            {/* <Switch> */}
-            {/* </Switch> */}
           </div>
         </ConnectedRouter>
       </Provider>

@@ -22,8 +22,11 @@ export const Local = styled.div`
 }
 
 .logo {
+    width: 50px;
+    heigth: 50px;
+    
     top: 50px;
-    float: left;
+    float: rigth;
     min-width: auto;
     padding-top: 4px; 
     padding-left: 15px;
