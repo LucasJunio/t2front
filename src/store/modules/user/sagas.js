@@ -59,7 +59,6 @@ export function* UpdateUser({ payload, resolve }) {
   }
 }
 
-
 export function* DeleteUser({ payload, resolve }) {
   try {
     const { id } = payload;
